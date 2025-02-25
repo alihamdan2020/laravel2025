@@ -8,8 +8,11 @@
 .container {
     width: 80vw;
     margin: 0px auto;
+    min-height: 100vh;
 }
-
+.link{
+    margin-block: 15px;
+}
 .cards {
     display: flex;
     justify-content: flex-start;
@@ -44,8 +47,9 @@
 /* index page */
 nav{
     display: flex;
-    gap:25px;
+    justify-content: space-between;
     margin-top: 20px;
+    border-bottom: 5px solid orange;
 }
 nav a{
     text-decoration: none;
@@ -67,4 +71,36 @@ nav a:before{
 }
 nav a:hover:before{
 transform: scale(1,1);
+}
+.container .forms{
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.container .forms +div{
+    margin-block: 20px;
+}
+.forms a{
+    margin-block: 10px;
+    display: inline-block;
+}
+.container form{
+    padding: 20px;
+    bordeR:2px solid red
+}
+form .controls{
+    padding:5px
+}
+form .controls label{
+    display: block;
+    margin-bottom: 10px;
+}
+form .controls input,
+form .controls select
+{
+    margin-top: 10px;
+border:1px solid black;
+outline:none
 }

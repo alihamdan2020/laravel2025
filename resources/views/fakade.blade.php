@@ -5,7 +5,7 @@
 @if(session()->has('msg'))
 <H1>{{session('msg')}}</H1>
 @endif
-<div class="link">    <a href="{{url('/')}}">return home page</a></div>
+<div class="link"><a href="{{url('/')}}">return home page</a></div>
 <div class="cards">
     @foreach ($allProducts as $product)
     <div class="card">

@@ -27,5 +27,42 @@ class ProductController extends Controller
         return view ('fakade',compact('allProducts'));
     }
 
+    
+    function insert(){
+        $supp=DB::table('suppliers')->get();
+        $cats=DB::table('categories')->get();
+
+        // return view ('insert',['supp'=>$suppliers,'cats'=>$categories]);
+        return view ('insert',compact('supp','cats'));
+    }
+
+    public function storeFacade(Request $req){
+        // dd($req->toArray());
+        $req->validate([
+           'prodname'=>'required',
+            'prodprice'=>'required'
+        ]);
+
+        DB::table('products')->insert([
+            'ProductName'=>$req->input('prodname'),
+            'CategoryID'=>$req->input('catid'),
+            'SupplierID'=>$req->input('supid'),
+            'UnitPrice'=>$req->input('prodprice'),
+            'description'=>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem assumenda distinctio "
+        ]);
+        return redirect('/insert')->with('msg','data has entertd succefully');
+    }
+    
+    public function storeModale(Request $req){
+        $data=$req->validate([
+            'ProductName'=>'required',
+            'UnitPrice'=>'required',
+        ]);
+        $data["description"]="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem assumenda distinctio ";
+        
+        Product::create($data);
+        
+        return redirect('/insert')->with('msg1','data has entertd succefully');
+    }
 
 }
