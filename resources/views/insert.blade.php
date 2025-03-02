@@ -13,11 +13,21 @@
        @csrf
         <div class="controls">
             <label for="productName">product name</label>
-            <input type="text" name="prodname" id="productName">
+            <input type="text" name="prodname" id="productName" autocomplete="off">
+            <p>
+            @error('prodname')
+            {{$message}}
+            @enderror
+            </p>
         </div>
         <div class="controls">
             <label for="productPrice">product price</label>
-            <input type="text" name="prodprice" id="productName">
+            <input type="text" name="prodprice" id="productName" autocomplet="off">
+            <p>
+            @error('prodprice')
+            {{$message}}
+            @enderror
+            </p>
         </div>
         <div class="controls">
             <label for="suppliers">supplier</label>
@@ -52,11 +62,21 @@
        @csrf
         <div class="controls">
             <label for="productName">product name</label>
-            <input type="text" name="ProductName" id="productName">
+            <input type="text" name="ProductName" id="productName" autocomplete="off" value={{old('ProductName')}}>
+            <p>
+            @error('ProductName')
+            {{$message}}
+            @enderror
+            </p>
         </div>
         <div class="controls">
             <label for="productPrice">product price</label>
-            <input type="text" name="UnitPrice" id="productName">
+            <input type="text" name="UnitPrice" id="productName" autocomplete="off" value={{old('UnitPrice')}}>
+            <p>
+            @error('UnitPrice')
+            {{$message}}
+            @enderror
+            </p>
         </div>
         <div class="controls">
             <label for="suppliers">supplier</label>

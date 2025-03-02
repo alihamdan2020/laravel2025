@@ -48,8 +48,8 @@
 nav{
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
-    border-bottom: 5px solid orange;
+    margin-block: 20px;
+    
 }
 nav a{
     text-decoration: none;
@@ -72,6 +72,11 @@ nav a:before{
 nav a:hover:before{
 transform: scale(1,1);
 }
+.seperator{
+    height:10px;
+    background-image: linear-gradient(to right,orange,transparent,orange);
+}
+/*form*/
 .container .forms{
     min-height: 100vh;
     display: flex;
@@ -104,3 +109,4 @@ form .controls select
 border:1px solid black;
 outline:none
 }
+

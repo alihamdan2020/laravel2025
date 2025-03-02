@@ -14,6 +14,7 @@
         <p><span>product qty</span>{{$product->QuantityPerUnit}}</p>
         <p><span>category</span>{{$product->CategoryName}}</p>
         <p><span>supplier</span>{{$product->CompanyName}}</p>
+        <p><a href="{{route('show',$product->ProductID)}}">show details</a></p>
     </div>
     @endforeach
 </div>
