@@ -12,6 +12,7 @@ class UserController extends Controller
         $users=User::latest()->paginate(10);
         // $users=User::latest()->take(5)->get();
         // $users=DB::table('users')->paginate(10);
+        //$users=User::paginate(10);
         return view('users.index',compact('users'));
     }
     
