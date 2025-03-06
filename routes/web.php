@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PersonController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Models\Person;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [function (){
@@ -29,6 +31,9 @@ route::get('/users',[UserController::class,'index']);
 route::get('/jm/{id}',[UserController::class,'show'])->name('show');
 route::get('/users/{id}',[UserController::class,'destroy'])->name('destroy');
 // route::resource('users',UserController::class);
+
+
+route::resource('personRoute',PersonController::class);
 
 
 

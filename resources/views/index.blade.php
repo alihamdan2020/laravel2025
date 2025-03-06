@@ -14,5 +14,10 @@
 <nav>
     <a href="/users">all users</a>
 </nav>
+<div class="seperator"></div>
+<nav>
+    <a href="{{route('personRoute.index')}}">display all persons</a>
+    <a href="{{route('personRoute.create')}}">add new person</a>
+</nav>
 
 @endsection
