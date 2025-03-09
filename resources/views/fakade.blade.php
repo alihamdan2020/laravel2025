@@ -9,12 +9,13 @@
 <div class="cards">
     @foreach ($allProducts as $product)
     <div class="card">
+       
         <p><span>product name</span>{{$product->ProductName}}</p>
         <p><span>product price</span>{{$product->UnitPrice}}</p>
         <p><span>product qty</span>{{$product->QuantityPerUnit}}</p>
         <p><span>category</span>{{$product->CategoryName}}</p>
         <p><span>supplier</span>{{$product->CompanyName}}</p>
-        <p><a href="{{route('show',$product->ProductID)}}">show details</a></p>
+        <p><a href="{{route('showProduct',$product->ProductID)}}">show details</a></p>
     </div>
     @endforeach
 </div>

@@ -69,20 +69,25 @@ class ProductController extends Controller
         $data = $req->validate([
             'ProductName' => 'required',
             'UnitPrice' => 'required|numeric|min:10|max:20',
+            'photo' =>'required|mimes:jpg, jpeg'
         ], [
             'ProductName.required' => "this filed is obligatory",
             'UnitPrice.required' => "this filed is obligatory",
             'UnitPrice.min'=>"minimum value is 10",
             'UnitPrice.max'=>"max value is 20",
+
             
         ]);
         $data["description"] = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem assumenda distinctio ";
         $data["SupplierID"]=$req->input('CategoryID');
         $data["CategoryID"]=$req->input('SupplierID');
 
-        $file = $req->file('photo');
-        $fileName = time() . '_' . $file->getClientOriginalName();
-        $file->move(public_path(), $fileName); // Save the file directly under public folder
+        // $file = $req->file('photo');
+        $file = $req->photo;
+        // $fileName = time() . '_' . $file->getClientOriginalName();
+        //syntax below is another way to name the image
+        $fileName = time() . '_' . $req->ProductName.'.'.$req->photo->extension();
+        $file->move(public_path('images'), $fileName); // Save the file directly under public folder
         $data['photo'] = $fileName; // Store the file name in the database
 
 

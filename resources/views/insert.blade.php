@@ -60,6 +60,7 @@
 
         <form action="{{route('storeModale')}}" method="POST" enctype="multipart/form-data">
             @csrf
+            
             <div class="controls">
                 <label for="productName">product name</label>
                 <input type="text" name="ProductName" id="productName" autocomplete="off" value={{old('ProductName')}}>
@@ -97,6 +98,11 @@
             </div>
             <div class="controls">
                 <input type="file" name="photo" id="">
+                <p>
+                    @error('photo')
+                    {{$message}}
+                    @enderror
+                </p>
             </div>
 
             <div class="controls">
