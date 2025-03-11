@@ -107,8 +107,9 @@ class ProductController extends Controller
             // $oneProduct = Product::join('categories', 'products.CategoryID', '=', 'categories.CategoryID')
             // ->join('suppliers', 'suppliers.SupplierID', '=', 'products.SupplierID')->where('ProductID',$id)->get();
         $msg = "using facades DB to fetch only one record from multi tables [products,categories,suppliers]";
-        session()->flash('msg', $msg);
+        // session()->flash('msg', $msg);
+        //in return view to pass a session we have the commented way session()->flash ..... or using compact
         // dd($oneProduct->toArray());
-        return view('oneproductFacade', compact('oneProduct'));
+        return view('oneproductFacade', compact('oneProduct','msg'));
     }
 }

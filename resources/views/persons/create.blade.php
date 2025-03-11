@@ -6,11 +6,19 @@
                     {{$message}}
                     @enderror
     </p>
-    <input type="text" name="personAge" id="">
+    <input type="number" name="personAge" id="">
     <p>
-    @error('personName')
+    @error('personAge')
                     {{$message}}
                     @enderror
     </p>
+    <input type="password" name="password" id="">
+    @error('password')
+                    {{$message}}
+                    @enderror
+    <input type="password" name="password_confirmation" id="">
+    @error('password_confirmaton')
+                    {{$message}}
+                    @enderror
     <button type="submit">store</button>
 </form>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Person;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class PersonController extends Controller
 {
@@ -32,8 +33,11 @@ class PersonController extends Controller
         // dd($request->all());
         $request->validate([
             'personName'=>'required',
-            'personAge'=>'required|numeric|min:1|max:80',
+            'personAge'=>'required|digits_between:1,2|between:1,99',
+            'password'=>'required|confirmed'
         ]);
+        $hashedPassword = Hash::make($request->password);
+        $request["password"]=$hashedPassword;
         Person::create($request->all());
         return redirect ()->route('personRoute.index');
         

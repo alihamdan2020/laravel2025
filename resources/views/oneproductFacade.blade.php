@@ -18,6 +18,7 @@
     <p>{{$product->CategoryName}}</p>
     <p>{{$product->CompanyName}}</p>
     <p>{{$product->description}}</p>
+    <p style="color:red;font-weight:bold">{{$msg}}</p>
 @endforeach
 <a href="/facade">return to facade page</a>
 @endsection

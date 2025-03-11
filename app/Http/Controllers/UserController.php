@@ -46,6 +46,12 @@ class UserController extends Controller
     }
 
     public function create(Request $req){
+        $req->validate([
+            'email'=>'required',
+'password'=>'required',
+'password_confirmation'=>'required|same:password'
+        ]);
+        
         $data=$req->only('email',"password");
         $user=User::create($data);
         Auth()->login($user);
